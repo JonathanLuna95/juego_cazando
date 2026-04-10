@@ -10,8 +10,8 @@ const ANCHOGATO = 50;
 const ALTURAGATO = 50;
  
 // Comida
-let ratonX = 50;
-let ratonY = 50;
+let comidaX = 0;
+let comidaY = 0;
 const ANCHOCOMIDA = 30;
 const ALTURACOMIDA = 30;
  
@@ -25,12 +25,14 @@ function graficarGato() {
 };
  
 function graficarComida() {
-    graficarRectangulo(ratonX, ratonY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
+    graficarRectangulo(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
 };
 
 function iniciarJuego() {
     gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
     gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
+    comidaX = canvas.width - ANCHOCOMIDA;
+    comidaY = canvas.height - ALTURACOMIDA;
     graficarGato();
     graficarComida();
 }
