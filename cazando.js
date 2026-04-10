@@ -44,10 +44,22 @@ function mover(direccion) {
     if (direccion === "derecha") gatoX += VELOCIDAD;
     graficarGato();
 }
+
+function limpiarCanvas(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+
+function moverIzquierdo(){
+    gatoX -=10;
+    limpiarCanvas();
+    graficarGato();
+    graficarComida();
+}
+
  
 document.getElementById("btnArriba").onclick = () => mover("arriba");
 document.getElementById("btnAbajo").onclick = () => mover("abajo");
-document.getElementById("btnIzquierda").onclick = () => mover("izquierda");
+document.getElementById("btnIzquierda").onclick = () => moverIzquierdo();
 document.getElementById("btnDerecha").onclick = () => mover("derecha");
  
  
