@@ -79,7 +79,7 @@ function moverAbajo(){
 
  
 document.getElementById("btnArriba").onclick = () => moverArriba();
-document.getElementById("btnAbajo").onclick = () => moverAbajo();
+document.getElementById("btnAbajo").onclick = () => moverAbajog();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierdo();
 document.getElementById("btnDerecha").onclick = () => moverDerecha();
  
