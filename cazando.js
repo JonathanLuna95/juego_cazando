@@ -21,6 +21,9 @@ let puntaje = 0;
 
 // Tiempo
 let tiempo = 10;
+
+// 
+let timer;
  
 function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -44,6 +47,7 @@ function iniciarJuego() {
     mostrarEnSpan("puntos",puntaje);
     mostrarEnSpan("tiempo", tiempo);
     
+    limpiarCanvas();
     graficarGato();
     graficarComida();
 
@@ -107,6 +111,7 @@ document.getElementById("btnArriba").onclick = () => moverArriba();
 document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierdo();
 document.getElementById("btnDerecha").onclick = () => moverDerecha();
+document.getElementById("btnReiniciar") .onclick = () => reiniciar();
 
 function detectarColision (){
     if(
@@ -124,14 +129,36 @@ function detectarColision (){
         limpiarCanvas();
         graficarGato();
         graficarComida();
+
+        if(puntaje >= 6){
+            clearInterval(timer);
+            alert ("!GANASTE!");
+        }
     }
 }
 
 function restarTiempo(){
     tiempo--;
     mostrarEnSpan("tiempo",tiempo);
+
+    if(tiempo <=0){
+        clearInterval(timer);
+        alert("GAME OVER");
+    }
 }
 
-setInterval(restarTiempo,1000);
- 
+timer = setInterval(restarTiempo,1000);
+
+function reiniciar(){
+    clearInterval(timer);
+    puntaje = 0;
+    tiempo = 10;
+
+    mostrarEnSpan("puntos",puntaje);
+    mostrarEnSpan("tiempo",tiempo );
+
+    iniciarJuego();
+    timer = setInterval(restarTiempo,1000);
+
+}
 
