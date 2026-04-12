@@ -1,6 +1,7 @@
 let canvas = document.getElementById("juego");
 let ctx = canvas.getContext("2d");
 
+
 const VELOCIDAD = 15;
 
 // Gato
@@ -37,51 +38,75 @@ function iniciarJuego() {
     graficarComida();
 }
  
-function mover(direccion) {
-    if (direccion === "arriba") gatoY -= VELOCIDAD;
-    if (direccion === "abajo") gatoY += VELOCIDAD;
-    if (direccion === "izquierda") gatoX -= VELOCIDAD;
-    if (direccion === "derecha") gatoX += VELOCIDAD;
-    graficarGato();
-}
 
 function limpiarCanvas(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
+const LIMITE_X = canvas.width - ANCHOGATO;
+const LIMITE_Y = canvas.height - ALTURAGATO;
+
 function moverIzquierdo(){
     gatoX -=10;
+      if (gatoX <0){
+        gatoX = 0;
+    }
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarColision();
+    
 }
 
 function moverDerecha(){
     gatoX +=10;
+      if (gatoX >LIMITE_X){
+        gatoX = LIMITE_X;
+    }
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverArriba(){
     gatoY -=10;
+    if (gatoY <0){
+        gatoY = 0;
+    }
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
 function moverAbajo(){
     gatoY +=10;
+     if (gatoY > LIMITE_Y){
+        gatoY = LIMITE_Y;
+    }
     limpiarCanvas();
     graficarGato();
     graficarComida();
+    detectarColision();
 }
 
  
 document.getElementById("btnArriba").onclick = () => moverArriba();
-document.getElementById("btnAbajo").onclick = () => moverAbajog();
+document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierdo();
 document.getElementById("btnDerecha").onclick = () => moverDerecha();
+
+function detectarColision (){
+    if(
+        gatoX < comidaX + ANCHOCOMIDA &&
+        gatoX + ANCHOGATO > comidaX &&
+        gatoY < comidaY + ALTURACOMIDA &&
+        gatoY + ALTURAGATO > comidaY
+    ){
+        alert ("El Gato tocó la comida");
+    }
+}
  
  
 
