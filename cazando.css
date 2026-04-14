@@ -1,42 +1,122 @@
+/* =========================
+   ESTILO GENERAL DE LA PÁGINA
+========================= */
 body {
   text-align: center;
   font-family: Arial, sans-serif;
-  background: #00ff15;
+  background: linear-gradient(to bottom, #0b1020, #111a2f);
+  color: white;
   margin: 0;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
+/* =========================
+   TÍTULO PRINCIPAL
+========================= */
 h1 {
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  font-size: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(0, 153, 255, 0.6);
 }
 
+/* =========================
+   TEXTO DEL AUTOR
+========================= */
+body > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: #b8c4e0;
+}
+
+/* =========================
+   PANEL DE PUNTOS Y TIEMPO
+========================= */
 .panel {
-  margin: 15px 0;
-  font-size: 18px;
+  margin: 20px auto;
+  padding: 14px 25px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 153, 255, 0.35);
+  border-radius: 14px;
+  width: fit-content;
+  box-shadow: 0 0 15px rgba(0, 153, 255, 0.15);
 }
 
+/* =========================
+   ÁREA DEL JUEGO
+========================= */
 canvas {
-  background: white;
-  border: 2px solid black;
+  background: linear-gradient(to bottom, #f4f8ff, #dce7f7);
+  border: 3px solid #0099ff;
+  border-radius: 16px;
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+  display: block;
+  margin: 0 auto;
 }
 
+/* =========================
+   CONTENEDOR DE BOTONES
+========================= */
 .controles {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
+/* =========================
+   BOTONES
+========================= */
 button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-#mensaje {
+  margin: 6px;
+  padding: 12px 18px;
   font-size: 20px;
   font-weight: bold;
-  color: darkred;
-  margin-top: 15px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #1b2a49, #10203d);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+button:hover {
+  background: linear-gradient(to bottom, #245da8, #163b70);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 153, 255, 0.35);
+}
+
+/* EFECTO AL HACER CLIC */
+button:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   BOTÓN REINICIAR
+========================= */
+#btnReiniciar {
+  margin-top: 12px;
+  background: linear-gradient(to bottom, #00a8ff, #0077cc);
+  color: white;
+}
+
+#btnReiniciar:hover {
+  background: linear-gradient(to bottom, #33bbff, #008ae6);
+}
+
+/* =========================
+   MENSAJE FINAL O AVISOS
+========================= */
+#mensaje {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffd54a;
+  margin-top: 20px;
+  text-shadow: 0 0 10px rgba(255, 213, 74, 0.35);
 }

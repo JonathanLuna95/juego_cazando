@@ -1,0 +1,8 @@
+//Prompts1
+Hola actúa como un experto en desarrollo web, soy estudiate principiante de la carrea de programación, estoy en la materia de Introducción a la programación, estamos revisando Java Script, necesito que me guies a desarrollar modificaciones en archivos js, html,css, podemos empezar con un pequeño taller que es un pequeño juego, ya te adjunto los archivos
+
+//Prompts2
+necesito mejorar el Css de mi juego para le revises y me ayudes a dejarlo como un juego de las mejore plataformas de juegos tipo EA SPORTS ETC ETC, no me entregues aun nada de información hasta que no te pase el codigo, ya te paso el html y el css
+
+//Prompts3
+listo acepto tu recomendación, quiero que emepcemos a modificar primero el css, que los vayamos haciendo paso a paso bien ordenado y guiandome ya que soy principiante
