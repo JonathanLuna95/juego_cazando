@@ -1,36 +1,74 @@
 <!DOCTYPE html>
-<html>
- 
+<html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juego Cazando</title>
   <link rel="stylesheet" href="cazando.css">
 </head>
- 
+
 <body onload="iniciarJuego();">
- 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Jonathan Luna</p>
- 
-  <canvas id="juego" width="500" height="500"></canvas>
-  <div class="controles">
-    <button id="btnArriba">⬆</button>
-    <br>
-    <button id="btnIzquierda">⬅</button>
-    <button id="btnAbajo">⬇</button>
-    <button id="btnDerecha">➡</button>
-    <br>
-    <button id="btnReiniciar" >Reiniciar</button>
-  </div>
- 
- 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
-  </div>
- 
-  <p id="mensaje"></p>
+  <div class="fondo-overlay"></div>
+
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand">
+        <p class="tag">Arcade Edition</p>
+        <h1>Juego Cazando</h1>
+        <p class="autor">Desarrollado por Jonathan Luna</p>
+      </div>
+
+      <div class="panel panel-top">
+        <div class="stat-box">
+          <span class="stat-label">Puntos</span>
+          <span class="stat-value" id="puntos">0</span>
+        </div>
+
+        <div class="stat-box">
+          <span class="stat-label">Tiempo</span>
+          <span class="stat-value" id="tiempo">10</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="game-layout">
+      <div class="game-card">
+        <div class="game-card-header">
+          <span class="indicator"></span>
+          <p>Zona de juego</p>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="juego" width="500" height="500"></canvas>
+        </div>
+
+        <p id="mensaje"></p>
+      </div>
+
+      <aside class="control-card">
+        <h2>Controles</h2>
+        <p class="control-text">Usa los botones para mover al gato y atrapar la comida antes de que el tiempo termine.</p>
+
+        <div class="controles">
+          <div class="fila fila-1">
+            <button id="btnArriba">⬆</button>
+          </div>
+
+          <div class="fila fila-2">
+            <button id="btnIzquierda">⬅</button>
+            <button id="btnAbajo">⬇</button>
+            <button id="btnDerecha">➡</button>
+          </div>
+
+          <div class="fila fila-3">
+            <button id="btnReiniciar">Reiniciar</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
   <script src="utils.js"></script>
   <script src="cazando.js"></script>
 </body>
- 
 </html>

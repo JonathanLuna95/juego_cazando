@@ -1,122 +1,340 @@
-/* =========================
-   ESTILO GENERAL DE LA PÁGINA
-========================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom, #0b1020, #111a2f);
-  color: white;
   margin: 0;
-  padding: 30px 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #f5f9ff;
+  background-image: url("fondoFuturista.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* =========================
-   TÍTULO PRINCIPAL
-========================= */
-h1 {
-  margin-bottom: 8px;
-  font-size: 38px;
-  letter-spacing: 2px;
+.fondo-overlay {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(2, 8, 20, 0.82) 0%, rgba(4, 10, 24, 0.90) 100%),
+    radial-gradient(circle at top, rgba(0, 174, 255, 0.18), transparent 35%);
+  z-index: 0;
+}
+
+.game-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 30px 24px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  text-align: left;
+}
+
+.tag {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  color: #73d5ff;
+  opacity: 0.9;
+}
+
+h1 {
+  margin: 0;
+  font-size: 48px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 0 12px rgba(0, 153, 255, 0.6);
+  text-shadow:
+    0 0 12px rgba(0, 183, 255, 0.35),
+    0 0 28px rgba(0, 183, 255, 0.18);
 }
 
-/* =========================
-   TEXTO DEL AUTOR
-========================= */
-body > p:first-of-type {
-  margin-top: 0;
-  margin-bottom: 25px;
-  font-size: 16px;
-  color: #b8c4e0;
+.autor {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: #b8c7e6;
+  letter-spacing: 0.6px;
 }
 
-/* =========================
-   PANEL DE PUNTOS Y TIEMPO
-========================= */
+.panel-top {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .panel {
-  margin: 20px auto;
-  padding: 14px 25px;
-  font-size: 20px;
+  background: rgba(10, 18, 34, 0.62);
+  border: 1px solid rgba(89, 198, 255, 0.22);
+  border-radius: 20px;
+  padding: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 12px 35px rgba(0, 0, 0, 0.28),
+    0 0 22px rgba(0, 153, 255, 0.10);
+}
+
+.stat-box {
+  min-width: 140px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(18, 31, 58, 0.95) 0%, rgba(11, 19, 38, 0.95) 100%);
+  border: 1px solid rgba(76, 191, 255, 0.16);
+  text-align: left;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 24px rgba(0, 0, 0, 0.22);
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #94a9cf;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: #61d3ff;
+  text-shadow: 0 0 16px rgba(97, 211, 255, 0.25);
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 0.85fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.game-card,
+.control-card {
+  background: rgba(8, 14, 28, 0.68);
+  border: 1px solid rgba(103, 205, 255, 0.18);
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 18px 40px rgba(0, 0, 0, 0.30),
+    0 0 35px rgba(0, 153, 255, 0.08);
+}
+
+.game-card {
+  padding: 22px;
+}
+
+.game-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.game-card-header p {
+  margin: 0;
+  color: #d5e6ff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #45e3ff;
+  box-shadow: 0 0 16px rgba(69, 227, 255, 0.9);
+}
+
+.canvas-frame {
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(19, 33, 61, 0.88) 0%, rgba(9, 17, 31, 0.94) 100%);
+  border: 1px solid rgba(80, 196, 255, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 16px 30px rgba(0, 0, 0, 0.30);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #f8fbff 0%, #dfe9f8 100%);
+  border: 3px solid #36bfff;
+  border-radius: 0;
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.03),
+    0 0 0 10px rgba(54, 191, 255, 0.08),
+    0 18px 34px rgba(0, 0, 0, 0.40),
+    0 0 26px rgba(54, 191, 255, 0.18);
+}
+
+.control-card {
+  padding: 24px 22px;
+  text-align: left;
+  margin-top: 80px;
+}
+
+.control-card h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.control-text {
+  margin: 0 0 24px;
+  color: #aebfdf;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.controles {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fila {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(0, 153, 255, 0.35);
-  border-radius: 14px;
-  width: fit-content;
-  box-shadow: 0 0 15px rgba(0, 153, 255, 0.15);
+  gap: 14px;
 }
 
-/* =========================
-   ÁREA DEL JUEGO
-========================= */
-canvas {
-  background: linear-gradient(to bottom, #f4f8ff, #dce7f7);
-  border: 3px solid #0099ff;
-  border-radius: 16px;
-  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
-  display: block;
-  margin: 0 auto;
-}
-
-/* =========================
-   CONTENEDOR DE BOTONES
-========================= */
-.controles {
-  margin-top: 25px;
-}
-
-/* =========================
-   BOTONES
-========================= */
 button {
-  margin: 6px;
-  padding: 12px 18px;
-  font-size: 20px;
-  font-weight: bold;
+  min-width: 74px;
+  min-height: 60px;
+  padding: 14px 18px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
   cursor: pointer;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(to bottom, #1b2a49, #10203d);
-  color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(180deg, rgba(27, 46, 83, 0.98) 0%, rgba(13, 24, 46, 0.98) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 10px 24px rgba(0, 0, 0, 0.32);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
 }
 
-/* EFECTO AL PASAR EL MOUSE */
 button:hover {
-  background: linear-gradient(to bottom, #245da8, #163b70);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 153, 255, 0.35);
+  transform: translateY(-3px);
+  border-color: rgba(98, 213, 255, 0.45);
+  background: linear-gradient(180deg, rgba(35, 89, 160, 1) 0%, rgba(18, 53, 102, 1) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 14px 28px rgba(0, 153, 255, 0.18);
 }
 
-/* EFECTO AL HACER CLIC */
 button:active {
   transform: scale(0.96);
 }
 
-/* =========================
-   BOTÓN REINICIAR
-========================= */
 #btnReiniciar {
-  margin-top: 12px;
-  background: linear-gradient(to bottom, #00a8ff, #0077cc);
-  color: white;
+  min-width: 100%;
+  min-height: 58px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #00b4ff 0%, #006dd8 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 14px 28px rgba(0, 153, 255, 0.24);
 }
 
 #btnReiniciar:hover {
-  background: linear-gradient(to bottom, #33bbff, #008ae6);
+  background: linear-gradient(180deg, #39c6ff 0%, #0088f0 100%);
 }
 
-/* =========================
-   MENSAJE FINAL O AVISOS
-========================= */
 #mensaje {
+  min-height: 34px;
+  margin: 18px 0 0;
+  text-align: center;
   font-size: 22px;
-  font-weight: bold;
-  color: #ffd54a;
-  margin-top: 20px;
-  text-shadow: 0 0 10px rgba(255, 213, 74, 0.35);
+  font-weight: 800;
+  color: #ffd85e;
+  letter-spacing: 0.5px;
+  text-shadow:
+    0 0 10px rgba(255, 216, 94, 0.24),
+    0 0 22px rgba(255, 216, 94, 0.14);
+}
+
+@media (max-width: 980px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .control-card {
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brand {
+    text-align: center;
+  }
+
+  .panel-top {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  .game-shell {
+    padding: 20px 14px 30px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .canvas-frame {
+    padding: 12px;
+  }
+
+  .stat-box {
+    min-width: 120px;
+  }
+
+  button {
+    min-width: 64px;
+    min-height: 56px;
+    font-size: 20px;
+  }
 }
