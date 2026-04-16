@@ -31,7 +31,7 @@ function graficarRectangulo(x, y, ancho, alto, color) {
 };
  
 function graficarGato() {
-    graficarRectangulo(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "#000000");
+    graficarRectangulo(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "#2bff00");
 };
  
 function graficarComida() {
@@ -39,10 +39,10 @@ function graficarComida() {
 };
 
 function iniciarJuego() {
-    gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
-    gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
-    comidaX = canvas.width - ANCHOCOMIDA;
-    comidaY = canvas.height - ALTURACOMIDA;
+    gatoX = (canvas.width) - (ANCHOGATO / 2);
+    gatoY = (canvas.height) - (ALTURAGATO / 2);
+    comidaX =(0,0,ANCHOCOMIDA);
+    comidaY =(0,0,ALTURACOMIDA);
 
     mostrarEnSpan("puntos",puntaje);
     mostrarEnSpan("tiempo", tiempo);
