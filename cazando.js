@@ -42,8 +42,10 @@ function graficarComida() {
 function iniciarJuego() {
     gatoX = (canvas.width)-(ANCHOGATO);
     gatoY = (canvas.height)-(ALTURAGATO);
-    comidaX =(0,0);
-    comidaY =(0,0);
+    comidaX =(250,250);
+    comidaY =(250,250);
+
+    tiempo = limiteTiempo;
 
     mostrarEnSpan("puntos",puntaje);
     mostrarEnSpan("tiempo", tiempo);
@@ -127,8 +129,14 @@ function detectarColision (){
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
 
-        tiempo = 15;
-        mostrarEnSpan("tiempo",tiempo);
+        if (limiteTiempo >1){
+            limiteTiempo--;
+        }
+
+    
+
+        tiempo = limiteTiempo;
+        mostrarEnSpan("tiempo", tiempo);
 
         limpiarCanvas();
         graficarGato();
@@ -155,8 +163,10 @@ timer = setInterval(restarTiempo,1000);
 
 function reiniciar(){
     clearInterval(timer);
+
     puntaje = 0;
-    tiempo = 10;
+    limiteTiempo = 15;
+    tiempo = 15;
 
     mostrarEnSpan("puntos",puntaje);
     mostrarEnSpan("tiempo",tiempo );
