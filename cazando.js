@@ -4,6 +4,9 @@ let ctx = canvas.getContext("2d");
 let imagenGato = new Image();
 imagenGato.src = "gato.png";
 
+let ratonComida = new Image();
+ratonComida.src = "raton.png";
+
 
 const VELOCIDAD = 15;
 
@@ -42,7 +45,7 @@ function graficarGato() {
 };
  
 function graficarComida() {
-    graficarRectangulo(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
+    ctx.drawImage(ratonComida, comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA,);
 };
 
 function iniciarJuego() {
