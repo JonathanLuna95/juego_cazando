@@ -127,7 +127,8 @@ function detectarColision (){
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
 
-        
+        tiempo = 15;
+        mostrarEnSpan("tiempo",tiempo);
 
         limpiarCanvas();
         graficarGato();
