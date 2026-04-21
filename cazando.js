@@ -20,7 +20,8 @@ const ALTURACOMIDA = 30;
 let puntaje = 0;
 
 // Tiempo
-let tiempo = 10;
+let limiteTiempo= 15;
+let tiempo = 15;
 
 // 
 let timer;
@@ -39,10 +40,10 @@ function graficarComida() {
 };
 
 function iniciarJuego() {
-    gatoX = (canvas.width) - (ANCHOGATO / 2);
-    gatoY = (canvas.height) - (ALTURAGATO / 2);
-    comidaX =(0,0,ANCHOCOMIDA);
-    comidaY =(0,0,ALTURACOMIDA);
+    gatoX = (canvas.width)-(ANCHOGATO);
+    gatoY = (canvas.height)-(ALTURAGATO);
+    comidaX =(0,0);
+    comidaY =(0,0);
 
     mostrarEnSpan("puntos",puntaje);
     mostrarEnSpan("tiempo", tiempo);
@@ -125,6 +126,8 @@ function detectarColision (){
 
         puntaje++;
         mostrarEnSpan("puntos", puntaje);
+
+        
 
         limpiarCanvas();
         graficarGato();
